@@ -1,0 +1,40 @@
+- Create a virtual environment in python to work, so we don't change the main environment
+- for windows -- pip install virtualenvwrapper-win , tool to create virtual environment
+- To create environment -- mkvirtualenv <environment name>(mainly project name)
+- install django -- pip install django
+- start a project in django -- django-admin startproject <project name>
+- To run the light local server run the manage.py file , with parameter --runserver
+- To use a virtual environment in python -- workon <environment name>
+- create an application in our project
+- python manage.py startapp <appname> , running manage.py with startapp parameter
+- we create urls.py in our application , to map urls for a particular app
+- but after that we also need to map our project url file to our application url file
+- we need to put template directory in settings template dir to let django know where are templates
+- MVT --Model view template,
+   - This template also have DTL - django template languate
+   - Data will be coming from model object.
+   - the url mapping will go to views and template and model connect to views,
+   - we write business logic in views
+   - This differenciate our concern
+   - model work with data
+   - view work with logic
+   - template works with layout
+- create static folder to put static css and javascript
+- create a staticfiles directory reference in settings.py
+    STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+  ]
+- After that django will put all our files and folders in static at some place so we should
+  specify that ---  STATIC_ROOT = os.path.join(BASE_DIR, "assets")
+  - But we need to inform django to create this assets folder
+- we need to make every href link to load content from static
+   - before this we need to load static on that page
+   - On top of page {% load static %}
+   - href="{% static 'styles/bootstrap4/bootstrap.min.css' %}"
+- use models.py to create objects/classes
+- we instantiate these objects in views.py
+- pass the list of objects from python to htmls, and do loop there to show everything
+    - start for loop -- {% for dest in dests%}
+    - end it -- {% endfor %}
+- {% static 'images' as baseImgUrl%} top of the html file and baseImgUrl becomes variable for that
+
