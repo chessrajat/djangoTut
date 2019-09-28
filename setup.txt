@@ -7,6 +7,8 @@
 - To use a virtual environment in python -- workon <environment name>
 - create an application in our project
 - python manage.py startapp <appname> , running manage.py with startapp parameter
+    - we need to mention the applications in our project in settings.py installed apps
+    - 'travello.apps.TravelloConfig'
 - we create urls.py in our application , to map urls for a particular app
 - but after that we also need to map our project url file to our application url file
 - we need to put template directory in settings template dir to let django know where are templates
@@ -37,4 +39,53 @@
     - start for loop -- {% for dest in dests%}
     - end it -- {% endfor %}
 - {% static 'images' as baseImgUrl%} top of the html file and baseImgUrl becomes variable for that
-
+- if-else in django
+    - {% if dest.offer %}
+    - {% endif %}
+- ORM - Object Relation Mapping
+    - create tables in database according to your classes
+- using postgres as a database , pgadmin as ui of database
+    - install both , port number - 5432
+- connect database to django
+    - connecting with postgres-sql
+    - In settings.py Database section
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'database name',
+        'USER': 'postgres',
+        'PASSWORD': 'Raat',
+        'HOST': 'localhost'
+        }
+    - we need a postgres and django connector , (psycopg2 - install this)
+    - To create table in database we need to create our class into model
+        - class test(models.Model):
+        - now we need to specify the type of variables as django model property
+        - for string -- name = models.CharField(max_length=20)
+    - Command to pass the models to the database
+        - To handle images and upload we need to install a libray pillow
+        - before that we need the migration file
+        - python manage.py makemigrations
+        - check sql query - python manage.py sqlmigrate travello 0001
+        - To migrate - python manage.py migrate
+- create a super-user for django to access admin panel localhost:8000/admin
+    - python manage.py createsuperuser
+    - we just need to register a model in admin.py and it will give us a page to put data
+- To add media , allow users to add media we need to create a path for media file in settings.py
+    - MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+    - create a MEDIA_URL which we will use in our views
+    - we also need to add these in urls.py file of project
+    - urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+- Fetch data from database in views
+    - dests = Destination.objects.all()
+- we can create different modules(app) for different functionality in project
+- for user, we already have a model we just need to push the content to database
+    - User.object that's how we handle the database
+- check something exists in the database
+    - User.objects.filer(username = username).exits()
+- Send data back from django to page as some kind of messages
+    - we use inbuild message object messages.info(request,"username Taken")
+    - there are other message objects that we can send
+    - we use a for loop in html to go through all the messages and print them one by one
+- check if the user is logged in and make decisions based on that
+    -  user.is_authenticated in html
+    - user.first_name -- get user credentials
