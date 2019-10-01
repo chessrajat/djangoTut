@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word Count</title>
+</head>
+<body>
+    <h2>Word Count</h2>
+    <form action="{% url 'count' %}">
+        <textarea cols="50" rows="10" name="wordcount"></textarea><br>
+        <input type="submit"> <a href="{% url 'login' %}">login</a>
+    </form>
+</body>
+</html>

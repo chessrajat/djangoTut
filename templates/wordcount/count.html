@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Count - Result</title>
+</head>
+<body>
+    <h2>There are {{words}} Words in your Text</h2>
+    <h2>words : </h2>
+    {% for word,count in wordf%}
+        <h3>{{word}} : {{count}} </h3>
+        
+    {% endfor %}
+</body>
+</html>

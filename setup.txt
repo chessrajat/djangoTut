@@ -89,3 +89,5 @@
 - check if the user is logged in and make decisions based on that
     -  user.is_authenticated in html
     - user.first_name -- get user credentials
+- refering links with name in html
+    - {% url 'count' %} -> count is the name given to urls.py file
