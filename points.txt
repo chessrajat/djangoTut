@@ -2,3 +2,6 @@
     - to tell django where to save media file
 - Getting current data time
     -- {% now "Y" %}
+
+-- Deploying to digital ocean
+    -

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'account.apps.AccountConfig',
     'travello.apps.TravelloConfig',
     'portfolio.apps.PortfolioConfig',
     'django.contrib.admin',
@@ -118,6 +119,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+# creating user profile
+# AUTH_PROFILE_MODULE = "account.UserProfile"
+# AUTH_USER_MODEL = 'account.UserProfile'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

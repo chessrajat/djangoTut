@@ -1,6 +1,10 @@
 {% extends 'base.html'%}
 {% block content%}
 
-<h1> Result .... {{result}}</h1>
+<h1>{% for d in result %}
+        {{d.phone}}<br>
+        {{d.address}}
+    {% endfor %}
+    </h1>
 
 {% endblock %}
